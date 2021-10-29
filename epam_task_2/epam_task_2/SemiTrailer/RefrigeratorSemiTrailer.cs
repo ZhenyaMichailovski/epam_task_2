@@ -7,8 +7,8 @@ namespace epam_task_2.SemiTrailer
     class RefrigeratorSemiTrailer : SemiTrailer
     {
         public double Temperature { get; set; }
-        public RefrigeratorSemiTrailer(string name, double weight, double temperature, List<Cargo.Cargo> cargos)
-            : base(name, weight, cargos)
+        public RefrigeratorSemiTrailer(int id, string name, double weight, double temperature, List<Cargo.Cargo> cargos)
+            : base(id, name, weight, cargos)
         {
             Temperature = temperature;
         }

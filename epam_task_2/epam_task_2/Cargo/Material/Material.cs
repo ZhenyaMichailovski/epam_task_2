@@ -6,8 +6,8 @@ namespace epam_task_2.Cargo.Material
 {
     abstract class Material : Cargo
     {
-        public Material(string name, double weight)
-            : base(name, weight)
+        public Material(int id, string name, double weight)
+            : base(id, name, weight)
         { }
     }
 }

@@ -6,8 +6,8 @@ namespace epam_task_2.SemiTrailer
 {
     class TankTruckSemiTrailer : SemiTrailer
     {
-        public TankTruckSemiTrailer(string name, double weight, List<Cargo.Cargo> cargos)
-            : base(name, weight, cargos)
+        public TankTruckSemiTrailer(int id, string name, double weight, List<Cargo.Cargo> cargos)
+            : base(id , name, weight, cargos)
         { }
     }
 }

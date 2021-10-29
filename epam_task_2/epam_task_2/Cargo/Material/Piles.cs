@@ -6,8 +6,8 @@ namespace epam_task_2.Cargo.Material
 {
     class Piles : Material
     {
-        public Piles(string name, double weight)
-            : base(name, weight)
+        public Piles(int id, string name, double weight)
+            : base(id, name, weight)
         { }
     }
 }

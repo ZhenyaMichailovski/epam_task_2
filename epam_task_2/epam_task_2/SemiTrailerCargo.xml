@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SemiTrailerCargos>
+	<SemiTrailerCargo>
+		<IdSemiTrailer>1</IdSemiTrailer>
+		<IdCargo>1</IdCargo>
+	</SemiTrailerCargo>
+	<SemiTrailerCargo>
+		<IdSemiTrailer>2</IdSemiTrailer>
+		<IdCargo>2</IdCargo>
+	</SemiTrailerCargo>
+	<SemiTrailerCargo>
+		<IdSemiTrailer>3</IdSemiTrailer>
+		<IdCargo>3</IdCargo>
+	</SemiTrailerCargo>
+</SemiTrailerCargos>
+	

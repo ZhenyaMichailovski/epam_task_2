@@ -6,8 +6,8 @@ namespace epam_task_2.Cargo.Product
 {
     class Fish : Product
     {
-        public Fish(string name, double weight, double temperature, double volum)
-            :base(name, weight, temperature, volum)
+        public Fish(int id, string name, double weight, double temperature, double volum)
+            :base(id, name, weight, temperature, volum)
         { }
     }
 }

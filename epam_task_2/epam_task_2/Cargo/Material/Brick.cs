@@ -6,8 +6,8 @@ namespace epam_task_2.Cargo.Material
 {
     class Brick : Material
     {
-        public Brick(string name, double weight)
-            : base(name, weight)
+        public Brick(int id, string name, double weight)
+            : base(id, name, weight)
         { }
     }
 }

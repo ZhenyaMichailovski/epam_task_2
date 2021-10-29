@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Trucks>
+	<Truck>
+		<Id>1</Id>
+		<Name>TruckTractor</Name>
+		<Weight>15</Weight>
+		<IdSemiTrailer>1</IdSemiTrailer>
+	</Truck>
+	<Truck>
+		<Id>2</Id>
+		<Name>TruckTractor</Name>
+		<Weight>20</Weight>
+		<IdSemiTrailer>2</IdSemiTrailer>
+	</Truck>
+	<Truck>
+		<Id>3</Id>
+		<Name>TruckTractor</Name>
+		<Weight>25</Weight>
+		<IdSemiTrailer>3</IdSemiTrailer>
+	</Truck>
+</Trucks>

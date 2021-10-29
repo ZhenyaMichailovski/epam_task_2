@@ -8,8 +8,8 @@ namespace epam_task_2.Cargo.Product
     {
         public double Volum { get; set; }
         public double Temperature { get; set; }
-        public Product(string name, double weight, double temperature, double volum)
-            : base (name, weight)
+        public Product(int id, string name, double weight, double temperature, double volum)
+            : base (id, name, weight)
         {
             Temperature = temperature;
             Volum = volum;

@@ -6,8 +6,8 @@ namespace epam_task_2.Cargo.Fuel
 {
     abstract class Fuel : Cargo
     {
-        public Fuel(string name, double weight)
-            :base(name, weight)
+        public Fuel(int id, string name, double weight)
+            :base(id, name, weight)
         { }
     }
 }

@@ -6,8 +6,8 @@ namespace epam_task_2.Cargo.Fuel
 {
     class AI95Fuel : Fuel
     {
-        public AI95Fuel(string name, double weight)
-            : base(name, weight)
+        public AI95Fuel(int id, string name, double weight)
+            : base(id, name, weight)
         { }
     }
 }
