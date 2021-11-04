@@ -5,7 +5,7 @@ using System.Text;
 
 namespace epam_task_2
 {
-    class DeveloperLogic
+    public class DeveloperLogic
     {
         public List<Truck.Truck> ViewingThePark()
         {
@@ -35,11 +35,12 @@ namespace epam_task_2
                     if (item.Temperature != trailer.Temperature && trailer.Weight >= product.Sum(x => x.Weight))
                         throw new Exception("Недопустимость по грузу");
 
-                XmlManager.XmlManager.SetSemiTrailer(trailer.Id.ToString(), trailer.Name, trailer.Weight.ToString(), "", trailer.Temperature.ToString());
+                XmlManager.XmlManager.SetSemiTrailer(trailer.Id.ToString(), trailer.Name, trailer.Weight.ToString(), "0", trailer.Temperature.ToString());
 
                 foreach(var item in product)
                 {
                     XmlManager.XmlManager.SetSemiTrailerCargo(trailer.Id.ToString(), item.Id.ToString());
+                    XmlManager.XmlManager.SetCargo(item.Id.ToString(), item.Name, item.Weight.ToString(), item.Temperature.ToString(), item.Volum.ToString());
                 }
             }
         }
@@ -112,6 +113,27 @@ namespace epam_task_2
             }
 
             return items;
+        }
+
+        public void DeleteSemiCargoById(int id)
+        {
+            XmlManager.XmlManager.DeleteSemiTrailer(id);
+        }
+        public void DeleteCargoById(int id)
+        {
+            XmlManager.XmlManager.DeleteCargo(id);
+        }
+        public void DeleteTruckById(int id)
+        {
+            XmlManager.XmlManager.DeleteTruck(id);
+        }
+        public void DeleteSemiTrailerCargo(int idSemiTrailer, int idCargo)
+        {
+            XmlManager.XmlManager.DeleteSemiTrailerCargo(idSemiTrailer, idCargo);
+        }
+        public void DeleteSemiTrailerCargo(int idSemiTrailer)
+        {
+            XmlManager.XmlManager.DeleteSemiTrailerCargo(idSemiTrailer);
         }
     }
 }

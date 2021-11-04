@@ -4,7 +4,7 @@ using System.Text;
 
 namespace epam_task_2.Cargo.Product
 {
-    class Apple : Product
+    public class Apple : Product
     {
         public Apple(int id, string name, double weight, double temperature, double volum)
             : base(id, name, weight, temperature, volum)

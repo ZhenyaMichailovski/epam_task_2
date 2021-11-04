@@ -2,7 +2,7 @@
 
 namespace epam_task_2.Cargo
 {
-    abstract public class Cargo
+    public abstract class Cargo
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -13,6 +13,13 @@ namespace epam_task_2.Cargo
             Id = id;
             Name = name;
             Weight = weight;
+        }
+
+        public override bool Equals(object obj)
+        {
+            Cargo cargo = obj as Cargo;
+            return (Id == cargo.Id && Name == cargo.Name && Weight == cargo.Weight);
+            
         }
     }
 }

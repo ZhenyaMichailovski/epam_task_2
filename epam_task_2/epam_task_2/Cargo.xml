@@ -1,24 +1,24 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Cargos>
-	<Cargo>
-		<Id>1</Id>
-		<name>AI92Fuel</name>
-		<weight>10</weight>
-		<temperature></temperature>
-		<volum></volum>
-	</Cargo>
-	<Cargo>
-		<Id>2</Id>
-		<name>Brick</name>
-		<weight>10</weight>
-		<temperature></temperature>
-		<volum></volum>
-	</Cargo>
-	<Cargo>
-		<Id>3</Id>
-		<name>Apple</name>
-		<weight>10</weight>
-		<temperature>3</temperature>
-		<volum>10</volum>
-	</Cargo>
+  <Cargo>
+    <Id>1</Id>
+    <name>AI92Fuel</name>
+    <weight>10</weight>
+    <temperature></temperature>
+    <volum></volum>
+  </Cargo>
+  <Cargo>
+    <Id>2</Id>
+    <name>Brick</name>
+    <weight>10</weight>
+    <temperature></temperature>
+    <volum></volum>
+  </Cargo>
+  <Cargo>
+    <Id>3</Id>
+    <name>Apple</name>
+    <weight>10</weight>
+    <temperature>3</temperature>
+    <volum>10</volum>
+  </Cargo>
 </Cargos>

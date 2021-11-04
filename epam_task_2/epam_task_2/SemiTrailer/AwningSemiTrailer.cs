@@ -4,7 +4,7 @@ using System.Text;
 
 namespace epam_task_2.SemiTrailer
 {
-    class AwningSemiTrailer : SemiTrailer
+    public class AwningSemiTrailer : SemiTrailer
     {
         public double Volum { get; set; }
         public AwningSemiTrailer(int id, string name, double weight, double volum, List<Cargo.Cargo> cargos)

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace epam_task_2.Cargo.Product
 {
-    abstract class Product : Cargo
+    public abstract class Product : Cargo
     {
         public double Volum { get; set; }
         public double Temperature { get; set; }

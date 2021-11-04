@@ -3,7 +3,7 @@
 	<Truck>
 		<Id>1</Id>
 		<Name>TruckTractor</Name>
-		<Weight>15</Weight>
+		<Weight>20</Weight>
 		<IdSemiTrailer>1</IdSemiTrailer>
 	</Truck>
 	<Truck>
