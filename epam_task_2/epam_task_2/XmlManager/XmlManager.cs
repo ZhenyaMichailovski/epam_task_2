@@ -49,33 +49,8 @@ namespace epam_task_2.XmlManager
                     }
                 }
 
-                
-                switch (name)
-                {
-                    case "AI92Fuel":
-                        cargos.Add(new Cargo.Fuel.AI92Fuel(Convert.ToInt32(id), name, Convert.ToDouble(weight)));
-                        break; 
-                    case "AI95Fuel":
-                        cargos.Add(new Cargo.Fuel.AI95Fuel(Convert.ToInt32(id), name, Convert.ToDouble(weight)));
-                        break; 
-                    case "AI98Fuel":
-                        cargos.Add(new Cargo.Fuel.AI98Fuel(Convert.ToInt32(id), name, Convert.ToDouble(weight)));
-                        break;
-                    case "Brick":
-                        cargos.Add(new Cargo.Material.Brick(Convert.ToInt32(id), name, Convert.ToDouble(weight)));
-                        break;
-                    case "Piles":
-                        cargos.Add(new Cargo.Material.Piles(Convert.ToInt32(id), name, Convert.ToDouble(weight)));
-                        break;
-                    case "Apple":
-                        cargos.Add(new Cargo.Product.Apple(Convert.ToInt32(id), name, Convert.ToDouble(weight), Convert.ToDouble(temperature), Convert.ToDouble(volum)));
-                        break;
-                    case "Fish":
-                        cargos.Add(new Cargo.Product.Fish(Convert.ToInt32(id), name, Convert.ToDouble(weight), Convert.ToDouble(temperature), Convert.ToDouble(volum)));
-                        break;
-                    default:
-                        break;
-                }
+                Developer.CargoDeveloper.CargoDeveloper cargoDeveloper = new Developer.CargoDeveloper.CargoDeveloper();
+                cargos.Add(cargoDeveloper.Create(Convert.ToInt32(id), name, Convert.ToDouble(weight), Convert.ToDouble(temperature), Convert.ToDouble(volum)));
             }
             return cargos; 
         }
@@ -155,50 +130,18 @@ namespace epam_task_2.XmlManager
                 var filterSemiTrailerCargos = semiTrailerCargos.FindAll(x => x.IdSemiTrailer == Convert.ToInt32(id));
                 var allCargos = GetAllCargos();
                 List<Cargo.Cargo> cargos = new List<Cargo.Cargo>();
-                foreach(var item in filterSemiTrailerCargos)
+                Developer.SemiTrailerDeveloper.SemiTrailerDeveloper semiTrailerDeveloper = new Developer.SemiTrailerDeveloper.SemiTrailerDeveloper();
+                Developer.CargoDeveloper.CargoDeveloper cargoDeveloper = new Developer.CargoDeveloper.CargoDeveloper();
+
+                foreach (var item in filterSemiTrailerCargos)
                 {
                     var needCargo = allCargos.FirstOrDefault(x => x.Id == item.IdCargo);
-                    switch (needCargo.Name)
-                    {
-                        case "AI92Fuel":
-                            cargos.Add(new Cargo.Fuel.AI92Fuel(Convert.ToInt32(id), name, Convert.ToDouble(weight)));
-                            break;
-                        case "AI95Fuel":
-                            cargos.Add(new Cargo.Fuel.AI95Fuel(Convert.ToInt32(id), name, Convert.ToDouble(weight)));
-                            break;
-                        case "AI98Fuel":
-                            cargos.Add(new Cargo.Fuel.AI98Fuel(Convert.ToInt32(id), name, Convert.ToDouble(weight)));
-                            break;
-                        case "Brick":
-                            cargos.Add(new Cargo.Material.Brick(Convert.ToInt32(id), name, Convert.ToDouble(weight)));
-                            break;
-                        case "Piles":
-                            cargos.Add(new Cargo.Material.Piles(Convert.ToInt32(id), name, Convert.ToDouble(weight)));
-                            break;
-                        case "Apple":
-                            cargos.Add(new Cargo.Product.Apple(Convert.ToInt32(id), name, Convert.ToDouble(weight), Convert.ToDouble(temperature), Convert.ToDouble(volum)));
-                            break;
-                        case "Fish":
-                            cargos.Add(new Cargo.Product.Fish(Convert.ToInt32(id), name, Convert.ToDouble(weight), Convert.ToDouble(temperature), Convert.ToDouble(volum)));
-                            break;
-                        default:
-                            break;
-                    }
+
+                    cargos.Add(cargoDeveloper.Create(Convert.ToInt32(id), name, Convert.ToDouble(weight), Convert.ToDouble(temperature), Convert.ToDouble(volum)));
+                   
                 }
-                switch (name)
-                {
-                    case "AwningSemiTrailer":
-                        items.Add(new SemiTrailer.AwningSemiTrailer(Convert.ToInt32(id), name, Convert.ToDouble(weight), Convert.ToDouble(volum), cargos));
-                        break;
-                    case "RefrigeratorSemiTrailer":
-                        items.Add(new SemiTrailer.RefrigeratorSemiTrailer(Convert.ToInt32(id), name, Convert.ToDouble(weight), Convert.ToDouble(temperature), cargos));
-                        break;
-                    case "TankTruckSemiTrailer":
-                        items.Add(new SemiTrailer.TankTruckSemiTrailer(Convert.ToInt32(id), name, Convert.ToDouble(weight), cargos));
-                        break;
-                    default:
-                        break;
-                }
+                items.Add(semiTrailerDeveloper.Create(Convert.ToInt32(id), name, Convert.ToDouble(weight), Convert.ToDouble(temperature), Convert.ToDouble(volum), cargos));
+                
             }
             return items;
         }
@@ -241,15 +184,8 @@ namespace epam_task_2.XmlManager
                 var semiTrailers = GetAllSemiTrailers();
 
                 var needSemiTrailer = semiTrailers.FirstOrDefault(x => x.Id == Convert.ToInt32(idSemiTrailer));
-                
-                switch(name)
-                {
-                    case "TruckTractor":
-                        items.Add(new Truck.TruckTractor(Convert.ToInt32(id), name, Convert.ToDouble(weight), needSemiTrailer));
-                        break;
-                    default:
-                        break;
-                }
+                Developer.TruckDeveloper.TruckDeveloper truckDeveloper = new Developer.TruckDeveloper.TruckDeveloper();
+                items.Add(truckDeveloper.Create(Convert.ToInt32(id), name, Convert.ToDouble(weight), needSemiTrailer));
             }
 
             return items;
@@ -260,32 +196,8 @@ namespace epam_task_2.XmlManager
             
             var cargos = GetAllCargos();
 
-            switch (name)
-            {
-                case "AI92Fuel":
-                    cargos.Add(new Cargo.Fuel.AI92Fuel(Convert.ToInt32(id), name, Convert.ToDouble(weight)));
-                    break;
-                case "AI95Fuel":
-                    cargos.Add(new Cargo.Fuel.AI95Fuel(Convert.ToInt32(id), name, Convert.ToDouble(weight)));
-                    break;
-                case "AI98Fuel":
-                    cargos.Add(new Cargo.Fuel.AI98Fuel(Convert.ToInt32(id), name, Convert.ToDouble(weight)));
-                    break;
-                case "Brick":
-                    cargos.Add(new Cargo.Material.Brick(Convert.ToInt32(id), name, Convert.ToDouble(weight)));
-                    break;
-                case "Piles":
-                    cargos.Add(new Cargo.Material.Piles(Convert.ToInt32(id), name, Convert.ToDouble(weight)));
-                    break;
-                case "Apple":
-                    cargos.Add(new Cargo.Product.Apple(Convert.ToInt32(id), name, Convert.ToDouble(weight), Convert.ToDouble(temperature), Convert.ToDouble(volum)));
-                    break;
-                case "Fish":
-                    cargos.Add(new Cargo.Product.Fish(Convert.ToInt32(id), name, Convert.ToDouble(weight), Convert.ToDouble(temperature), Convert.ToDouble(volum)));
-                    break;
-                default:
-                    break;
-            }
+            Developer.CargoDeveloper.CargoDeveloper cargoDeveloper = new Developer.CargoDeveloper.CargoDeveloper();
+            cargos.Add(cargoDeveloper.Create(Convert.ToInt32(id), name, Convert.ToDouble(weight), Convert.ToDouble(temperature), Convert.ToDouble(volum)));
 
             List<XElement> xElements = new List<XElement>();
             XDocument xdoc = new XDocument();
@@ -411,21 +323,9 @@ namespace epam_task_2.XmlManager
         public static void SetSemiTrailer(string id, string name, string weight, string volum, string temperature)
         {
             var semiTrailer = GetAllSemiTrailers();
+            Developer.SemiTrailerDeveloper.SemiTrailerDeveloper semiTrailerDeveloper = new Developer.SemiTrailerDeveloper.SemiTrailerDeveloper();
 
-            switch (name)
-            {
-                case "AwningSemiTrailer":
-                    semiTrailer.Add(new SemiTrailer.AwningSemiTrailer(Convert.ToInt32(id), name, Convert.ToDouble(weight), Convert.ToDouble(volum), null));
-                    break;
-                case "RefrigeratorSemiTrailer":
-                    semiTrailer.Add(new SemiTrailer.RefrigeratorSemiTrailer(Convert.ToInt32(id), name, Convert.ToDouble(weight), Convert.ToDouble(temperature), null));
-                    break;
-                case "TankTruckSemiTrailer":
-                    semiTrailer.Add(new SemiTrailer.TankTruckSemiTrailer(Convert.ToInt32(id), name, Convert.ToDouble(weight), null));
-                    break;
-                default:
-                    break;
-            }
+            semiTrailer.Add(semiTrailerDeveloper.Create(Convert.ToInt32(id), name, Convert.ToDouble(weight), Convert.ToDouble(temperature), Convert.ToDouble(volum), null));
 
             List<XElement> xElements = new List<XElement>();
             XDocument xdoc = new XDocument();
@@ -491,14 +391,8 @@ namespace epam_task_2.XmlManager
         {
             var trucks = GetAllTrucks();
             var semiTrailers = GetAllSemiTrailers();
-            switch (name)
-            {
-                case "TruckTractor":
-                    trucks.Add(new Truck.TruckTractor(Convert.ToInt32(id), name, Convert.ToDouble(weight), null));
-                    break;
-                default:
-                    break;
-            }
+            Developer.TruckDeveloper.TruckDeveloper truckDeveloper = new Developer.TruckDeveloper.TruckDeveloper();
+            trucks.Add(truckDeveloper.Create(Convert.ToInt32(id), name, Convert.ToDouble(weight), null));
 
             List<XElement> xElements = new List<XElement>();
             XDocument xdoc = new XDocument();
@@ -542,7 +436,7 @@ namespace epam_task_2.XmlManager
             xdoc.Save(@"../../Trucks.xml");
         }
 
-        public void DeleteCargo(int id)
+        public static void DeleteCargo(int id)
         {
             var items = GetAllCargos();
             var item = items.FirstOrDefault(x => x.Id == id);
@@ -587,7 +481,7 @@ namespace epam_task_2.XmlManager
 
         }
 
-        public void DeleteSemiTrailer(int id)
+        public static void DeleteSemiTrailer(int id)
         {
             var items = GetAllSemiTrailers();
             var item = items.FirstOrDefault(x => x.Id == id);
@@ -595,6 +489,7 @@ namespace epam_task_2.XmlManager
             DeleteSemiTrailerCargo(id);
             foreach (var i in items)
             {
+                
                 switch (i.Name)
                 {
                     case "AwningSemiTrailer":
@@ -618,7 +513,7 @@ namespace epam_task_2.XmlManager
             }
         }
 
-        public void DeleteSemiTrailerCargo(int idSemiTrailer)
+        public static void DeleteSemiTrailerCargo(int idSemiTrailer)
         {
             var SemiTrailerCargos = GetAllSemiTrailersCargos();
             var items = SemiTrailerCargos.FindAll(x => x.IdSemiTrailer == idSemiTrailer);
@@ -634,7 +529,7 @@ namespace epam_task_2.XmlManager
             }
         }
 
-        public void DeleteTruck(int id)
+        public static void DeleteTruck(int id)
         {
             var items = GetAllTrucks();
             var item = items.FirstOrDefault(x => x.Id == id);
